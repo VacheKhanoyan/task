@@ -1,0 +1,131 @@
+{
+  "cars": {
+    "id": ["1", "2", "3", "4", 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "marks": [
+      "Alfa Romeo",
+      "Am General",
+      "Aston Martin",
+      "Audi",
+      "Nissan",
+      "Subaru",
+      "Bugatti",
+      "Chevrolet",
+      "Hummer",
+      "Hyundai",
+      "Infiniti",
+      "International",
+      "Koenigsegg"
+    ],
+    "models": [
+      "Alfa Romeo1",
+      "Am General1",
+      "Aston Martin1",
+      "Audi1",
+      "Nissan1",
+      "Subaru1",
+      "Bugatti1",
+      "Chevrolet1",
+      "Hummer1",
+      "Hyundai1",
+      "Infiniti1",
+      "International1",
+      "Koenigsegg1"
+    ],
+    "price": [
+      50000,
+      60000,
+      70000,
+      80000,
+      90000,
+      100000,
+      30000,
+      65000,
+      58000,
+      64000,
+      71000,
+      83000
+    ],
+    "miles": [
+      "50 Miles",
+      "60 Miles",
+      "70 Miles",
+      "80 Miles",
+      "90 Miles",
+      "100 Miles",
+      "110 Miles",
+      "120 Miles",
+      "130 Miles",
+      "140 Miles",
+      "150 Miles",
+      "160 Miles"
+    ]
+  },
+
+  "newCars": [
+    {
+      "id": 1,
+      "name": "Mercedes",
+      "miles": "30K",
+      "drive": "2WD",
+      "transmission": "Manual",
+      "exterior": "red",
+      "fuel_type": "diesel",
+      "location": "United Kingdom, London",
+      "price": "97.500"
+    },
+    {
+      "id": 2,
+      "name": "Porsche",
+      "miles": "20K",
+      "drive": "2WD",
+      "transmission": "Automatic",
+      "exterior": "blue",
+      "fuel_type": "diesel",
+      "price": "87.000"
+    },
+    {
+      "id": 3,
+      "name": "Bugatti",
+      "miles": "35K",
+      "drive": "2WD",
+      "transmission": "Automatic",
+      "exterior": "red, black",
+      "fuel_type": "diesel",
+      "location": "Germany, Frankfurt",
+      "price": "125.000"
+    },
+    {
+      "id": 4,
+      "name": "Dodge",
+      "miles": "40K",
+      "drive": "2WD",
+      "transmission": "Manual",
+      "exterior": "blue",
+      "fuel_type": "diesel",
+      "location": "Germany, Cologne",
+      "price": "37.000"
+    },
+    {
+      "id": 5,
+      "name": "BMW",
+      "miles": "50K",
+      "drive": "2WD",
+      "transmission": "Automatic",
+      "exterior": "Light blue",
+      "fuel_type": "diesel",
+      "location": "Spain, Madrid",
+      "price": "39.000"
+    },
+    {
+      "id": 6,
+      "name": "Ferrari",
+      "miles": "8K",
+      "drive": "2WD",
+      "transmission": "Automatic",
+      "exterior": "red",
+      "fuel_type": "diesel",
+      "location": "Italia, Turin",
+      "price": "94.000"
+    }
+  ]
+}
