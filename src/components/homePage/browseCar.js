@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import BrowseSlider from "./browseSlider";
 
 class BrowseCar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
+    this.child = React.createRef();
+  }
+  next = () => {
+    this.child.current.next();
+  };
+  prev = () => {
+    this.child.current.previous();
+  };
   render() {
     return (
       <section style={{ backgroundColor: "white" }}>
@@ -10,6 +23,11 @@ class BrowseCar extends Component {
           Our expert reviewers report back with the latest
         </p>
         <div className="blog_slider home_browse slick-initialized slick-slider">
+          <div
+            onClick={this.prev}
+            class="prev-arrow slideshow-arrow single_arrowP slick-arrow"
+            style={{ display: "block" }}
+          />
           <div aria-live="polite" className="slick-list draggable">
             <div
               className="slick-track"
@@ -21,7 +39,12 @@ class BrowseCar extends Component {
               }}
             />
           </div>
-          <BrowseSlider />
+          <BrowseSlider ref={this.child} />
+          <div
+            onClick={this.next}
+            class="next-arrow slideshow-arrow single_arrowN slick-arrow"
+            style={{ display: "block" }}
+          />
         </div>
       </section>
     );

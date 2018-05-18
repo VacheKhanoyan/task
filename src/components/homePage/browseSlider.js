@@ -13,6 +13,8 @@ class BrowseSlider extends React.Component {
         "style/img/single3.jpg"
       ]
     };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
     this.slider = this.slider.bind(this);
   }
   slider = () => {
@@ -49,16 +51,26 @@ class BrowseSlider extends React.Component {
       );
     });
   };
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
   render() {
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
+      speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1
     };
     return (
       <div>
-        <Slider {...settings}>{this.slider()}</Slider>
+        <Slider ref={c => (this.slider = c)} {...settings}>
+          {this.slider()}
+        </Slider>
+        <div style={{ textAlign: "center" }} />
       </div>
     );
   }

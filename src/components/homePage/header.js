@@ -1,6 +1,17 @@
 import React, { Component } from "react";
+import SignUp from "./../signupPage/signup";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false
+    };
+    this.click = this.click.bind(this);
+  }
+  click = () => {
+    this.setState({ show: !this.state.show });
+  };
   render() {
     return (
       <div>
@@ -34,7 +45,9 @@ class Header extends Component {
                   <a href="#form-login">Sign In</a>
                 </li>
                 <li className="inline-popups">
-                  <a href="#form-reg">Sign Up</a>
+                  <a href="#form-reg" onClick={this.click}>
+                    Sign Up
+                  </a>
                 </li>
                 <li className="drop_down">
                   <a href="#" className="menu_toggle">
@@ -62,6 +75,11 @@ class Header extends Component {
             </div>
           </div>
         </header>
+        {this.state.show && (
+          <div>
+            <SignUp />
+          </div>
+        )}
       </div>
     );
   }

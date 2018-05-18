@@ -347,6 +347,15 @@ header .container{
 .select .dd {
     position:relative;
 }
+
+.fullscreen{
+    z-index: 10000; 
+    
+    width: 100%; 
+    height: 100%;
+    position: absolute; 
+  } 
+
 .select .dt span {
     background: #ffffff;
     background:#ffffff url('../img/bottom_arrow_select.png') no-repeat scroll right 20px center; 
@@ -499,7 +508,7 @@ header .container{
     border: 2px solid #EEA303;
 }
 .submit:hover{
-    background: #EEA303;
+    background:#EEA303;
     color: #fff;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
@@ -2776,8 +2785,16 @@ input:-ms-input-placeholder {
 }
 /* end placeholder*/
 
-.mfp-close-btn-in .mfp-close,
-.back_popup{
+.mfp-close-btn-in  .back_popup{
+    color: rgb(238, 163, 3);
+    opacity: 1;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.mfp-close {
     color: rgb(238, 163, 3);
     opacity: 1;
     -webkit-transition: all .2s ease-in-out;
@@ -2791,7 +2808,7 @@ input:-ms-input-placeholder {
 }
 .mfp-close:hover,
 .back_popup:hover{
-    color: rgb(196, 134, 4);
+    color: rgb(196, 134, 4);    
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;

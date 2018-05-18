@@ -19,13 +19,12 @@ class SearchBar extends Component {
     for (let cars in data) {
       if (cars === elem) {
         return data[cars].map(data => {
-          return <li key={data}>{data}</li>;
+          return <option key={data}>{data}</option>;
         });
       }
     }
   };
   onClick(elem) {
-    console.log(elem);
     this.setState({ menuSelect: this.state.menuSelect === elem ? "" : elem });
   }
 
@@ -84,7 +83,10 @@ class SearchBar extends Component {
               <div className="select">
                 <ul onClick={() => this.onClick("marks")}>
                   <li className="dt">
-                    <span>Am General</span>
+                    <select>
+                      <option value="select">All Marks</option>
+                      {this.carTitle("marks")}
+                    </select>
                   </li>
                   <li>
                     <ul
@@ -92,9 +94,7 @@ class SearchBar extends Component {
                         display:
                           this.state.menuSelect === "marks" ? "block" : "none"
                       }}
-                    >
-                      {this.carTitle("marks")}
-                    </ul>
+                    />
                   </li>
                 </ul>
               </div>
