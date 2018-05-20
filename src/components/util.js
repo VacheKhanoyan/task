@@ -8,7 +8,8 @@ export const sign_Up_Data = {
   confirm_password: ""
 };
 export const error_message = {
-  empty: "can`t be empty",
+  empty: "Can`t be empty",
+  exist: "This email already exist",
   firstname: "*The firstname can`t be long then 255 characters.",
   lastname: "*The firstname can`t be long then 255 characters.",
   email: "Invalid email",

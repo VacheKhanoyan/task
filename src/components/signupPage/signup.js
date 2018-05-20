@@ -16,7 +16,9 @@ class SignUp extends Component {
     this.click = this.click.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   }
-
+componentDidMount(){
+  
+}
   click = () => {
     this.setState({ show: !this.state.show });
   };
@@ -25,31 +27,25 @@ class SignUp extends Component {
       ...this.state,
       data: { ...this.state.data, [e.target.name]: e.target.value }
     });
-  userExist = email => {
-    this.props.getUser(email);
-    console.log("aaaaaaaaaaaa", this.props.user.email);
-    if (this.props.user[0] !== "undefined") {
-      this.setState({ exist: "already exist" });
-    }
-  };
+  
+// TODO: generic signup form 
+
   _onSubmit = e => {
     e.preventDefault();
-    const errors = validate(this.state.data);
-    this.userExist(this.state.email);
+    this.props.getUser(this.state.data.email)
+    const exist = Object.keys(this.props.user).length
+    const errors = validate(this.state.data, !exist);
+    this.setState({ errors  });   
 
-    this.setState({ errors });
-
-    console.log(this.state.errors);
-    if (Object.keys(this.state.errors).length === 0 && !this.state.exist) {
+    if (Object.keys(errors).length === 0) {
       postUser(this.state.data, () => {
-        this.setState({ show: !this.state.show });
+        this.props.show();
       });
     }
   };
 
   render() {
-    const { data, errors } = this.state;
-
+    const { data, errors, exist } = this.state;
     return (
       <div>
         {this.state.show && (
@@ -59,7 +55,7 @@ class SignUp extends Component {
                 title="Close (Esc)"
                 type="text"
                 className="mfp-close"
-                onClick={this.click}
+                onClick={this.props.show}
                 style={{
                   float: "right",
                   background: "transparent",
@@ -115,10 +111,9 @@ class SignUp extends Component {
                       onChange={this._onChange}
                     />
                   </div>
-                  {errors.email ||
-                    (this.state.exist && (
+                  {errors.email  && 
                       <div class="validate">{errors.email}</div>
-                    ))}
+                    }
                   <div>
                     <input
                       type="text"
@@ -129,7 +124,7 @@ class SignUp extends Component {
                       onChange={this._onChange}
                     />
                   </div>
-                  {errors.email && (
+                  {errors.phone_number && (
                     <div className="validate">{errors.phone_number} </div>
                   )}
                   <div>
@@ -147,7 +142,7 @@ class SignUp extends Component {
                     <input
                       type="password"
                       placeholder="Password"
-                      id="password"
+                      
                       name="password"
                       value={data.password}
                       onChange={this._onChange}
@@ -158,7 +153,7 @@ class SignUp extends Component {
                     <input
                       type="password"
                       placeholder="Confirm password"
-                      id="onfirm_password"
+                      
                       name="confirm_password"
                       value={data.confirm_password}
                       onChange={this._onChange}

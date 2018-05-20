@@ -1,6 +1,6 @@
 import { error_message } from "./util";
 
-const validate = data => {
+const validate = function(data, exist) {
   const errors = {};
   //TODO: change 1-255 after testing
   if (!/^\s*(\S\s*){1,5}$/.test(data.firstname)) {
@@ -22,6 +22,8 @@ const validate = data => {
       data.email.length > 1
         ? error_message.email
         : `*The email ${error_message.empty} `;
+  } else if(exist){
+    errors.email= error_message.exist
   }
 
   if (

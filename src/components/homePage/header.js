@@ -7,9 +7,9 @@ class Header extends Component {
     this.state = {
       show: false
     };
-    this.click = this.click.bind(this);
+    this.onShow = this.onShow.bind(this);
   }
-  click = () => {
+  onShow = () => {
     this.setState({ show: !this.state.show });
   };
   render() {
@@ -45,7 +45,7 @@ class Header extends Component {
                   <a href="#form-login">Sign In</a>
                 </li>
                 <li className="inline-popups">
-                  <a href="#form-reg" onClick={this.click}>
+                  <a href="#form-reg" onClick={this.onShow}>
                     Sign Up
                   </a>
                 </li>
@@ -77,7 +77,7 @@ class Header extends Component {
         </header>
         {this.state.show && (
           <div>
-            <SignUp />
+            <SignUp show={this.onShow}/>
           </div>
         )}
       </div>
