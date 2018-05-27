@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import BrowseSlider from "./browseSlider";
+import React, { Component } from 'react';
+import BrowseSlider from './browseSlider';
 
 class BrowseCar extends Component {
   constructor(props) {
@@ -9,24 +9,24 @@ class BrowseCar extends Component {
     this.prev = this.prev.bind(this);
     this.child = React.createRef();
   }
-  next = () => {
+  next() {
     this.child.current.next();
-  };
-  prev = () => {
+  }
+  prev() {
     this.child.current.previous();
-  };
+  }
   render() {
     return (
-      <section style={{ backgroundColor: "white" }}>
+      <section style={{ backgroundColor: 'white' }}>
         <h1>Browse New Models</h1>
         <p className="sect_info">
           Our expert reviewers report back with the latest
         </p>
         <div className="blog_slider home_browse slick-initialized slick-slider">
-          <div
+          <button
             onClick={this.prev}
-            class="prev-arrow slideshow-arrow single_arrowP slick-arrow"
-            style={{ display: "block" }}
+            className="prev-arrow slideshow-arrow single_arrowP slick-arrow"
+            style={{ display: 'block' }}
           />
           <div aria-live="polite" className="slick-list draggable">
             <div
@@ -34,16 +34,16 @@ class BrowseCar extends Component {
               role="listbox"
               style={{
                 opacity: 1,
-                width: "5264px",
-                transition: "translate3d('-1504px', '0px', '0px')"
+                width: '5264px',
+                transition: "translate3d('-1504px', '0px', '0px')",
               }}
             />
           </div>
           <BrowseSlider ref={this.child} />
-          <div
+          <button
             onClick={this.next}
-            class="next-arrow slideshow-arrow single_arrowN slick-arrow"
-            style={{ display: "block" }}
+            className="next-arrow slideshow-arrow single_arrowN slick-arrow"
+            style={{ display: 'block' }}
           />
         </div>
       </section>

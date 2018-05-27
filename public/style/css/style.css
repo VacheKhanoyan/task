@@ -117,9 +117,7 @@ header .container{
     float: right;
     padding: 15px 0;
 }
-.header_menu ul{
 
-}
 .header_menu ul li{
     display: inline-block;
     margin-right: 40px;
@@ -350,27 +348,25 @@ header .container{
 
 .fullscreen{
     z-index: 10000; 
-    
     width: 100%; 
     height: 100%;
-    position: absolute; 
+    position: absolute;
+    padding: 30px;
   } 
 
-.select .dt span {
+.select  .select-box{
     background: #ffffff;
-    background:#ffffff url('../img/bottom_arrow_select.png') no-repeat scroll right 20px center; 
     display:block; 
-    padding: 11px 25px;
+    padding: 9px 25px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -khtml-box-sizing: border-box;
     width: 100%;
-    cursor:pointer; 
+    
     display: inline-block; 
     text-align: left;
-    color: #000000;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -382,7 +378,7 @@ header .container{
     background:#ffffff none repeat scroll 0 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    left:0px;
+    left:px;
     top: -2px;
     position:absolute; 
     width:100%;
@@ -392,6 +388,9 @@ header .container{
     box-shadow: 1px 3px 5px rgba(77,77,77,1);
     z-index: 7;
 }
+
+
+
 .select .dd ul li{ 
     padding:5px 25px; 
     display:block;
@@ -403,7 +402,7 @@ header .container{
     transition: all .2s ease-in-out;
 }
 .select .dd ul li:hover {
-    background: rgb(238, 163, 3);
+    background:rgb(238, 163, 3);
     color: #fff;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
@@ -596,9 +595,7 @@ h1{
     border-top: 2px solid #333;
     border-radius: 35px 0px;
 }
-.car_type {
 
-}
 .add_area {
     background: url("../img/header_bg.png") repeat 50% 50% rgba(0, 0, 0, 0.55);
 }
@@ -858,9 +855,7 @@ h4.title{
 /* end browse cars*/
 
 /* cars slider */
-.cars_slider{
 
-}
 /* slick slider */
 .slider .immagine{
     height: 600px;
@@ -962,10 +957,7 @@ h4.title{
     margin-bottom: 0rem;
     background-color: #f5f4f2;
 }
-.sezione{
-    /*    float: right;
-        width: 70%;*/
-}
+
 .sezione.slide-driver {
     /*float: left;*/
     width: 100%;
@@ -1201,9 +1193,7 @@ h4.title{
     right: 0;
     bottom: 0;
 }
-.contact_area .container{
-    /*background: rgba(81,91,131,0.6);*/
-}
+
 .contact_area h1{
     color: #fff;
     padding: 20px 0;
@@ -1217,7 +1207,7 @@ input[type=number],
 input[type=password],
 textarea{
     background: #ffffff;
-    padding: 11px 25px;
+    padding: 11px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -1237,8 +1227,11 @@ input[type=text]:focus,
 input[type=email]:focus,
 input[type=number]:focus,
 input[type=password]:focus,
+
+
+
 textarea:focus{
-    border-color: rgb(238, 163, 3);
+    border-color: rgb(43, 155, 207);
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -2316,9 +2309,7 @@ h3.title::after {
 .ads{
     text-align: left;
 }
-.ads h3.title{
 
-}
 .slider-like{
     margin: 25px 0;
 }
@@ -2713,9 +2704,7 @@ h3.title::after {
 
 
 /* ====== Move-from-top effect ====== */
-.mfp-content {
 
-}
 .mfp-with-anim {
     opacity: 0;
     transition: all 0.5s;
@@ -2765,7 +2754,7 @@ h3.white{
 
 textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
-    color: #565656;
+    color: #aaa;
     font-size: 17px;
 }
 textarea:-moz-placeholder ,
@@ -2888,8 +2877,7 @@ a.size18:hover{
     border-bottom: 1px solid #E3E6EA;
     padding: 15px 0px;
 }
-.top_description ul{
-}
+
 .top_description li {
     position: relative;
     padding: 5px 8px;
@@ -3669,9 +3657,12 @@ li.active a, li.active a:hover {
     border: 1px solid #ddd;
     margin-top: 10px;
 }
+
 .rows > .ui-widget {
     margin-top: 10px;
+    
 }
+
 .rows > p {
     font-size: 18px;
     color: #eea303;

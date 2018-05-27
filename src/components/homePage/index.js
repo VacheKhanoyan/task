@@ -1,17 +1,14 @@
-import React, { Component } from "react";
-import Header from "./header";
-import Content from "./content";
-import SignUp from "../signupPage/signup";
+import React from 'react';
+import Header from './header';
+import Content from './content';
+import Footer from './footer';
 
-class HomePage extends Component {
-  render() {
-    return (
-      <div className="content">
-        <Header />
-        <Content />
-      </div>
-    );
-  }
-}
+const AddCarPage = () => (
+  <div className="content">
+    <Header />
+    <Content />
+    <Footer />
+  </div>
+);
 
-export default HomePage;
+export default AddCarPage;

@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import getCar from "./../../actions/fetchCar";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import getCar from './../../actions/fetchCar';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuSelect: ""
+      menuSelect: '',
     };
     this.carTitle = this.carTitle.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -14,18 +15,14 @@ class SearchBar extends Component {
   componentDidMount() {
     this.props.getCar();
   }
-  carTitle = elem => {
-    const data = this.props.cars;
-    for (let cars in data) {
-      if (cars === elem) {
-        return data[cars].map(data => {
-          return <option key={data}>{data}</option>;
-        });
-      }
-    }
-  };
+
   onClick(elem) {
-    this.setState({ menuSelect: this.state.menuSelect === elem ? "" : elem });
+    this.setState({ menuSelect: this.state.menuSelect === elem ? '' : elem });
+  }
+
+  carTitle(elem) {
+    const data = Object.values(this.props.cars);
+    return data.map(d => <option key={d.id}>{d[elem]}</option>);
   }
 
   render() {
@@ -39,7 +36,7 @@ class SearchBar extends Component {
             <div className="search_form">
               <ul className="car_type">
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input
                       type="radio"
                       className="show_me"
@@ -50,107 +47,91 @@ class SearchBar extends Component {
                   </label>
                 </li>
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input type="radio" name="type" value="body_type" />
                     <img src="style/img/icons/icon2.png" alt="icons" />
                   </label>
                 </li>
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input type="radio" name="type" value="body_type" />
                     <img src="style/img/icons/icon3.png" alt="icons" />
                   </label>
                 </li>
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input type="radio" name="type" value="body_type" />
                     <img src="style/img/icons/icon4.png" alt="icons" />
                   </label>
                 </li>
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input type="radio" name="type" value="body_type" />
                     <img src="style/img/icons/icon5.png" alt="icons" />
                   </label>
                 </li>
                 <li>
-                  <label>
+                  <label htmlFor="type">
                     <input type="radio" name="type" value="body_type" />
                     <img src="style/img/icons/icon6.png" alt="icons" />
                   </label>
                 </li>
               </ul>
               <div className="select">
-                <ul onClick={() => this.onClick("marks")}>
-                  <li className="dt">
-                    <select>
-                      <option value="select">All Marks</option>
-                      {this.carTitle("marks")}
-                    </select>
-                  </li>
-                  <li>
-                    <ul
-                      style={{
-                        display:
-                          this.state.menuSelect === "marks" ? "block" : "none"
-                      }}
-                    />
-                  </li>
+                <ul>
+                  <select className="select-box">
+                    <option
+                      value="select"
+                      onClick={() => this.onClick('marks')}
+                    >
+                      All Marks
+                    </option>
+                    {this.carTitle('marks')}
+                  </select>
+                  <ul />
                 </ul>
               </div>
               <div className="select">
-                <ul onClick={() => this.onClick("models")}>
-                  <li className="dt">
-                    <span>All Models</span>
-                  </li>
-                  <li className="dd">
-                    <ul
-                      style={{
-                        display:
-                          this.state.menuSelect === "models" ? "block" : "none"
-                      }}
+                <ul>
+                  <select className="select-box">
+                    <option
+                      value="select"
+                      onClick={() => this.onClick('models')}
                     >
-                      {this.carTitle("models")}
-                    </ul>
-                  </li>
+                      All Models
+                    </option>
+                    {this.carTitle('models')}
+                  </select>
+                  <ul />
                 </ul>
-                <input type="hidden" value="" className="select_value" />
               </div>
               <div className="select">
-                <ul onClick={() => this.onClick("price")}>
-                  <li className="dt">
-                    <span>Select a Price</span>
-                  </li>
-                  <li className="dd">
-                    <ul
-                      style={{
-                        display:
-                          this.state.menuSelect === "price" ? "block" : "none"
-                      }}
+                <ul>
+                  <select className="select-box">
+                    <option
+                      value="select"
+                      onClick={() => this.onClick('price')}
                     >
-                      {this.carTitle("price")}
-                    </ul>
-                  </li>
+                      All Models
+                    </option>
+                    {this.carTitle('price')}
+                  </select>
+                  <ul />
                 </ul>
-                <input type="hidden" value="" className="select_value" />
               </div>
               <div className="select">
-                <ul onClick={() => this.onClick("miles")}>
-                  <li className="dt">
-                    <span>All Miles</span>
-                  </li>
-                  <li className="dd">
-                    <ul
-                      style={{
-                        display:
-                          this.state.menuSelect === "miles" ? "block" : "none"
-                      }}
+                <ul>
+                  <select className="select-box">
+                    <option
+                      value="select"
+                      onClick={() => this.onClick('miles')}
                     >
-                      {this.carTitle("miles")}
-                    </ul>
-                  </li>
+                      All Models
+                    </option>
+                    {this.carTitle('miles')}
+                  </select>
+                  <ul />
                 </ul>
-                <input type="hidden" value="" className="select_value" />
               </div>
               <div className="line_search">
                 <input type="submit" value="Search" className="submit" />
@@ -163,9 +144,20 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  getCar: PropTypes.func.isRequired,
+  cars: PropTypes.shape({
+    marks: PropTypes.string,
+    models: PropTypes.string,
+    miles: PropTypes.string,
+    price: PropTypes.string,
+  }).isRequired,
+};
+
 function mapStateToProps(state) {
   return {
-    cars: state.cars
+    cars: state.cars,
   };
 }
 

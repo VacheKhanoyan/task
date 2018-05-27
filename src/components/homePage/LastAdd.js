@@ -1,27 +1,28 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import getNewCar from "./../../actions/fetchNewCars";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import getNewCar from './../../actions/fetchNewCars';
 
 class LastAddedModels extends Component {
   componentDidMount() {
     this.props.getNewCar();
   }
-  LastAdd = () => {
+  LastAdd() {
     const data = Object.values(this.props.newCars);
     return data.map(cars => (
       <div className="clearAfter" key={cars.id}>
-        <a href="#">
-          <div className="immagine left" style={{ position: "relative" }}>
+        <a href="#to">
+          <div className="immagine left" style={{ position: 'relative' }}>
             <img
               src={`https://source.unsplash.com/1040x668/?${cars.name}`}
               alt={cars.name}
               style={{
-                position: "absolute",
-                height: "205px",
-                width: "363px",
-                maxWidth: "363px",
-                top: "-2.5px",
-                left: "0px"
+                position: 'absolute',
+                height: '205px',
+                width: '363px',
+                maxWidth: '363px',
+                top: '-2.5px',
+                left: '0px',
               }}
             />
             <p className="car_title">{cars.name}</p>
@@ -68,14 +69,14 @@ class LastAddedModels extends Component {
                 <span className="car_price">{cars.price}</span>
               </p>
               <p className="map_car">
-                <i className="fa fa-map-marker" /> {cars.location}{" "}
+                <i className="fa fa-map-marker" /> {cars.location}{' '}
               </p>
             </div>
           </div>
         </a>
       </div>
     ));
-  };
+  }
 
   render() {
     return (
@@ -90,7 +91,7 @@ class LastAddedModels extends Component {
               className="browse_cars home_browse clearAfter"
               id="theme_variant"
             >
-              {this.LastAdd("style/img/banner3.jpg")}
+              {this.LastAdd()}
             </div>
           </div>
         </section>
@@ -98,9 +99,24 @@ class LastAddedModels extends Component {
     );
   }
 }
+
+LastAddedModels.propTypes = {
+  getNewCar: PropTypes.func.isRequired,
+  newCars: PropTypes.shape({
+    name: PropTypes.string,
+    location: PropTypes.string,
+    exterior: PropTypes.string,
+    miles: PropTypes.string,
+    price: PropTypes.string,
+    drive: PropTypes.string,
+    fuel_type: PropTypes.string,
+    transmission: PropTypes.string,
+  }).isRequired,
+};
+
 function mapStateToProps(state) {
   return {
-    newCars: state.newCars
+    newCars: state.newCars,
   };
 }
 export default connect(mapStateToProps, { getNewCar })(LastAddedModels);
