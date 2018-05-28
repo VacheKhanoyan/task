@@ -40,7 +40,7 @@ class Header extends Component {
   }
   logOut() {
     localStorage.removeItem('user');
-    localStorage.removeItem('logout'); // jnjel logout
+    localStorage.removeItem('logout');
     this.setState({ success: !this.state.success });
   }
 

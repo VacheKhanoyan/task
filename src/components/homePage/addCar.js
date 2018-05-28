@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 /* eslint-disable */
 const AddCar = () => (
   <div>
@@ -25,7 +26,9 @@ const AddCar = () => (
                 soluta perferendis consequatur voluptate autem necessitatibus
                 maiores aspernatur? Tenetur aliquam, minus repudiandae suscipit.
           </p>
+          <Link to={`/addCar`}>
           <input type="submit" value="Add cars" />
+          </Link >
         </div>
       </div>
     </section>

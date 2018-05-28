@@ -4,7 +4,7 @@ import AddCarPage from './components/AddCarPage';
 
 const App = () => (
   <div>
-    {/* <HomePage /> */}
+    <HomePage />
     <AddCarPage />
   </div>
 );

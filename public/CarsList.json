@@ -810,10 +810,7 @@
     },
     {
       "brand": "Hummer",
-      "models": [
-        "H2",
-        "H3"
-      ]
+      "models": ["H2", "H3"]
     },
     {
       "brand": "Hyundai",
@@ -853,15 +850,7 @@
     },
     {
       "brand": "Infiniti",
-      "models": [
-        "EX",
-        "FX",
-        "G",
-        "G Coupé",
-        "M",
-        "Q",
-        "QX"
-      ]
+      "models": ["EX", "FX", "G", "G Coupé", "M", "Q", "QX"]
     },
     {
       "brand": "Jaguar",
@@ -1063,17 +1052,7 @@
     },
     {
       "brand": "Rover",
-      "models": [
-        "200",
-        "214",
-        "218",
-        "25",
-        "400",
-        "414",
-        "416",
-        "620",
-        "75"
-      ]
+      "models": ["200", "214", "218", "25", "400", "414", "416", "620", "75"]
     },
     {
       "brand": "Smart",
@@ -1320,27 +1299,9 @@
     "yellowgreen",
     "rebeccapurple"
   ],
-  "transmission": [
-    "Automanual",
-    "Automatic",
-    "CVT",
-    "Manual"
-  ],
-  "driveType": [
-    "4x2/2-wheel drive",
-    "4x4/4-wheel drive",
-    "AWD",
-    "FWD",
-    "RWD"
-  ],
-  "doors": [
-    "1 door",
-    "2 door",
-    "3 door",
-    "4 door",
-    "5 door",
-    "6 door"
-  ],
+  "transmission": ["Automanual", "Automatic", "CVT", "Manual"],
+  "driveType": ["4x2/2-wheel drive", "4x4/4-wheel drive", "AWD", "FWD", "RWD"],
+  "doors": ["1 door", "2 door", "3 door", "4 door", "5 door", "6 door"],
   "cylinder": [
     "1 Cylinder",
     "2 Cylinder",
@@ -1372,12 +1333,7 @@
     "Keyless Entry",
     "Integrated Phone"
   ],
-  "seats": [
-    "Bucket Seats",
-    "Leather Interior",
-    "Memory Seats",
-    "Power Seats"
-  ],
+  "seats": ["Bucket Seats", "Leather Interior", "Memory Seats", "Power Seats"],
   "safety": [
     "Airbag: Driver",
     "Airbag: Passenger",
