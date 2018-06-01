@@ -8,35 +8,34 @@ import getAllCars from './../../actions/cars';
 const ContactInfo = (props) => {
   const { data, errors } = props;
   return (
+
     <fieldset>
       <legend align="center">Enter Your Contact Info</legend>
-      <div>
-        <div className="twoRows">
-          <div className="rows">
-            <span>First Name</span>
-            <input
-              type="text"
-              placeholder="First name"
-              id="firstname"
-              name="firstname"
-              value={data.firstname}
-              onChange={props.handleInput}
-            />
-            <div className="validate">{errors.firstname}</div>
-          </div>
-          <div className="rows">
-            <span>Last Name</span>
-            <input
-              type="text"
-              placeholder="Last name"
-              id="lastname"
-              name="lastname"
-              value={data.lastname}
-              onChange={props.handleInput}
-            />
-            <div className="validate">{errors.lastname}</div>
-          </div>
+      <div >
 
+        <div className="rows">
+          <span>First Name</span>
+          <input
+            type="text"
+            placeholder="First name"
+            id="firstname"
+            name="firstname"
+            value={data.firstname}
+            onChange={props.handleInput}
+          />
+          <div className="validate">{errors.firstname}</div>
+        </div>
+        <div className="rows">
+          <span>Last Name</span>
+          <input
+            type="text"
+            placeholder="Last name"
+            id="lastname"
+            name="lastname"
+            value={data.lastname}
+            onChange={props.handleInput}
+          />
+          <div className="validate">{errors.lastname}</div>
         </div>
         <div className="twoRows">
           <div className="rows check_style">
@@ -75,6 +74,7 @@ const ContactInfo = (props) => {
             />
             <div className="validate">{errors.phoneNumber}</div>
           </div>
+
         </div>
       </div>
     </fieldset>

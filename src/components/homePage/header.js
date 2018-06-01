@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import SignUp from './../signupPage/signup';
 import SignIn from './../signupPage/signin';
+import { loggedIn } from '../../actions/userAction';
 
 class Header extends Component {
   constructor(props) {
@@ -42,6 +45,8 @@ class Header extends Component {
     localStorage.removeItem('user');
     localStorage.removeItem('logout');
     this.setState({ success: !this.state.success });
+    const id = '';
+    this.props.loggedIn(id);
   }
 
   render() {
@@ -136,4 +141,9 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  loggedIn: PropTypes.func.isRequired,
+};
+
+
+export default connect(null, { loggedIn })(Header);

@@ -1,16 +1,37 @@
 import React from 'react';
-import Header from './../homePage/header';
-import Footer from './../homePage/footer';
+import { ToastContainer, toast } from 'react-toastify';
 import Caption from './caption';
 import Container from './container';
 
-const HomePage = () => (
-  <div className="content">
-    <Header />
-    <Caption />
-    <Container />
-    <Footer />
-  </div>
-);
+class AddCarPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notify: false,
+    };
 
-export default HomePage;
+    this.notifys = this.notifys.bind(this);
+    this.addSuccess = this.addSuccess.bind(this);
+  }
+  notifys = () => {
+    toast.success('Success Car Add!', {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  }
+  addSuccess() {
+    this.setState({ notify: !this.state.notify });
+  }
+  render() {
+    return (
+      <div className="content">
+        <ToastContainer />
+        { this.state.notify && this.notifys() }
+        <Caption />
+        <Container addSuccess={this.addSuccess} />
+      </div>
+    );
+  }
+}
+
+
+export default AddCarPage;

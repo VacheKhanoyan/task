@@ -353,6 +353,18 @@ header .container{
     position: absolute;
     padding: 30px;
   } 
+  .hidden{
+    z-index: 1;
+    opacity: 0;
+}
+  /* .noShow{
+    z-index: 1; 
+    width: 100%; 
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    padding: 30px;
+  }  */
 
 .select  .select-box{
     background: #ffffff;

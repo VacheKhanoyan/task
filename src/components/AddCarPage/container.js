@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { map } from 'lodash';
-// import { ToastContainer, toast } from 'react-toastify';
-import { Base64 } from 'js-base64';
+import { withRouter } from 'react-router';
+import Spinner from 'react-spinkit';
 import 'react-select/dist/react-select.css';
 import { addCarData } from './../util';
 import { signUpValidate } from './../validate';
@@ -14,6 +14,7 @@ import CarFeauters from './carFeauters';
 import ContactInfo from './contactInfo';
 import CarDescription from './carDescription';
 import CarPhoto from './carPhoto';
+import { postImage } from './../../actions/postImage';
 
 class Container extends Component {
   constructor(props) {
@@ -24,7 +25,9 @@ class Container extends Component {
       image: '',
       notify: false,
       success: false,
+      loading: false,
     };
+
     this.marksList = this.marksList.bind(this);
     this.modelsList = this.modelsList.bind(this);
     this.stylesList = this.stylesList.bind(this);
@@ -33,32 +36,37 @@ class Container extends Component {
     this.onClick = this.onClick.bind(this);
     this.upload = this.upload.bind(this);
   }
+
+
   componentDidMount() {
     this.props.getAllCars();
   }
-  onClick() {
+
+  async onClick() {
     const errors = signUpValidate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      postCar(
-        this.state.data,
-        () => this.setState({ notify: !this.state.notify, success: !this.state.success }),
-      );
+      this.setState({ loading: !this.state.loading });
+      await postCar(this.state.data);
+      const id = localStorage.getItem('addCar_id');
+      const img = {
+        id,
+        data: this.state.image,
+      };
+      await postImage(img);
+      this.props.addSuccess();
+      this.props.history.push('/');
     }
   }
-  //   notifys = () => {
-  //     toast.success('Success Notification !', {
-  //       position: toast.POSITION.TOP_CENTER,
-  //     });
-  //   }
+
   upload=(e) => {
-    const image = e.target.files[0];
+    const f = e.target.files[0];
     const reader = new FileReader();
-    reader.onloadend = function () {
-      return reader.result;
+    reader.onload = () => {
+      const dataURL = reader.result;
+      this.setState({ image: dataURL });
     };
-    reader.readAsDataURL(image);
-    this.setState({ image: reader.result });
+    reader.readAsDataURL(f);
   }
     handleChange = (e) => {
       this.setState({
@@ -76,8 +84,6 @@ class Container extends Component {
       });
     }
     handleCeckbox = (e) => {
-    //   console.log(e.target.dataset.id);
-    //   console.log(id);
       this.setState({
         ...this.state,
         data: {
@@ -109,16 +115,14 @@ class Container extends Component {
       map(this.props.cars[arg], elem => arr.push({ value: elem, label: elem, name: arg }));
       return arr;
     }
+
     render() {
-      // console.log('dsada', this.state.data.comfort);
-      console.log('dsda', this.state.image);
       return (
         <div>
           <div className="container">
             <div className="add_form">
               <h1>Add Cars for Sale</h1>
               <form action="">
-
                 <CarInfo
                   data={this.state.data}
                   handleChange={this.handleChange}
@@ -126,7 +130,6 @@ class Container extends Component {
                   stylesList={this.stylesList}
                   marksList={this.marksList}
                   modelsList={this.modelsList}
-
                 />
                 <CarFeauters
                   handleCeckbox={this.handleCeckbox}
@@ -141,12 +144,24 @@ class Container extends Component {
                   data={this.state.data}
                   handleInput={this.handleInput}
                 />
+
                 <CarPhoto
                   onClick={this.onClick}
                   upload={this.upload}
                   success={this.state.success}
                 />
-
+                {this.state.loading &&
+                <div
+                  style={{
+                  position: 'relative',
+                  zIndex: '5555',
+                  marginLeft: '500px',
+                  padding: '55px',
+                  }}
+                >
+                  <Spinner name="ball-clip-rotate-multiple" color="#eea303" />
+                </div>
+              }
               </form>
             </div>
           </div>
@@ -158,6 +173,10 @@ class Container extends Component {
 
 Container.propTypes = {
   getAllCars: PropTypes.func.isRequired,
+  addSuccess: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   cars: PropTypes.shape({
     CarsList: PropTypes.array,
   }).isRequired,
@@ -168,5 +187,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getAllCars, postCar })(Container);
+export default withRouter(connect(mapStateToProps, { getAllCars, postCar, postImage })(Container));
 

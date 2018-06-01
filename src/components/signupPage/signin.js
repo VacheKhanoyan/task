@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { signUpData } from './../util';
 import { loginValidate } from './../validate';
 
-import { getUser } from './../../actions/userAction';
+import { getUser, loggedIn } from './../../actions/userAction';
 
 class SignIn extends Component {
   constructor(props) {
@@ -31,8 +31,9 @@ class SignIn extends Component {
     const errors = loginValidate(user);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      await this.props.getUser(this.state.data.email, this.state.data.password);
+      await this.props.getUser(user);
       const data = { id: this.props.user[0].id, firstname: this.props.user[0].firstname };
+      this.props.loggedIn(data.id);
       localStorage.setItem('user', JSON.stringify(data));
       this.props.success();
       this.props.show();
@@ -40,6 +41,7 @@ class SignIn extends Component {
   }
   render() {
     const { data, errors } = this.state;
+
     return (
       <div className="fullscreen">
         <div id="form-login" className="modal-content mfp-with-anim mfp-hide">
@@ -121,6 +123,7 @@ SignIn.propTypes = {
   getUser: PropTypes.func.isRequired,
   show: PropTypes.func.isRequired,
   success: PropTypes.func.isRequired,
+  loggedIn: PropTypes.func.isRequired,
   user: PropTypes.shape({
     email: PropTypes.string,
     id: PropTypes.number,
@@ -133,4 +136,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getUser })(SignIn);
+export default connect(mapStateToProps, { getUser, loggedIn })(SignIn);

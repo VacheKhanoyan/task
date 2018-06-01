@@ -2,6 +2,7 @@ import { ADD_CAR } from './../actions/postCars';
 import { GET_ALL_CARS } from './../actions/cars';
 import { FETCH_CARS } from './../actions/fetchCar';
 
+
 export default function (state = {}, action) {
   switch (action.type) {
     case ADD_CAR:

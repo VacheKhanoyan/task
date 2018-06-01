@@ -22,7 +22,7 @@ class SearchBar extends Component {
 
   carTitle(elem) {
     const data = Object.values(this.props.cars);
-    return data.map(d => <option key={d.id}>{d[elem]}</option>);
+    return data.map((d, i) => <option key={i.toString()}>{d[elem]}</option>);
   }
 
   render() {

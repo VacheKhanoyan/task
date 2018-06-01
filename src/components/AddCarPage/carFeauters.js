@@ -10,6 +10,7 @@ class CarFeauters extends Component {
     this.props.getAllCars();
   }
   render() {
+    console.log('user:', localStorage.getItem('user'));
     return (
       <fieldset>
         <legend align="center">Select Your Car`s Features</legend>

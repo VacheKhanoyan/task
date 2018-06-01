@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 /* eslint-disable */
-const AddCar = () => (
+
+class AddCar extends Component {
+  constructor(props){
+    super(props)
+  }
+  
+  render(){
+  console.log("ewerw",this.props)
+ 
+ 
+    return(
   <div>
     <section>
       <div className="add_post">
@@ -26,14 +37,21 @@ const AddCar = () => (
                 soluta perferendis consequatur voluptate autem necessitatibus
                 maiores aspernatur? Tenetur aliquam, minus repudiandae suscipit.
           </p>
+         
           <Link to={`/addCar`}>
-          <input type="submit" value="Add cars" />
+          <input type="submit" value="Add cars"  />
           </Link >
         </div>
       </div>
     </section>
   </div>
-);
+    )
+  }
+};
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  };
+}
 
-
-export default AddCar;
+export default connect(mapStateToProps)(AddCar);

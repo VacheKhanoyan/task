@@ -2,30 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import thunk from 'redux-thunk';
 
-// import App from './App';
+import App from './App';
 import reducers from './reducers';
-
-import HomePage from './components/homePage';
-import AddCarPage from './components/AddCarPage';
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter >
-
-      <Switch>
-
-        <Route path="/addCar" component={AddCarPage} />
-        <Route path="/" component={HomePage} />
-      </Switch>
-
+      <Route component={App} />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 );
+

@@ -50,10 +50,10 @@ class BrowseSlider extends React.Component {
     ));
   }
   next() {
-    this.slider.slickNext();
+    this.refs.slider.slickNext();
   }
   previous() {
-    this.slider.slickPrev();
+    this.refs.slider.slickPrev();
   }
   render() {
     const settings = {
@@ -66,12 +66,12 @@ class BrowseSlider extends React.Component {
     return (
       <div>
         <Slider
-          ref={(c) => {
-            this.slider = c;
-          }}
           {...settings}
+          ref="slider"
         >
           {this.slider()}
+          {this.props.next && this.next()}
+          {this.props.prev && this.previous()}
         </Slider>
         <div style={{ textAlign: 'center' }} />
       </div>

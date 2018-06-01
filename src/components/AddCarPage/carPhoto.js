@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 import 'react-select/dist/react-select.css';
@@ -92,11 +92,9 @@ const CarPhoto = props => (
       </ul>
     </div>
     <div className="add_btn">
-
-      <Link to="/" >
+    
         <input type="button" onClick={props.onClick} value="Add car" />
-      </Link>
-
+    
     </div>
   </fieldset>
 );

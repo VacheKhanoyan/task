@@ -12,6 +12,7 @@ class CarInfo extends Component {
   }
   render() {
     const { data } = this.props;
+
     return (
       <fieldset>
         <legend align="center">Enter Basic Vehicle Info</legend>
@@ -190,12 +191,12 @@ CarInfo.propTypes = {
     email: PropTypes.string,
     phoneNumber: PropTypes.string,
   }).isRequired,
-
 };
 
 function mapStateToProps(state) {
   return {
     cars: state.cars,
+    user: state.user,
   };
 }
 

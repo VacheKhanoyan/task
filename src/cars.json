@@ -141,50 +141,10 @@
   ],
   "addCars": [
     {
-      "mark": "Renault",
-      "model": "Clio",
-      "year": 2017,
-      "style": "Commercial",
-      "color": "antiquewhite",
-      "transmission": "Automatic",
-      "driveType": "AWD",
-      "doors": "2 door",
-      "cylinder": "2 Cylinder",
-      "fuel": "Diesel",
-      "milage": "34534",
-      "vinCode": "45345",
-      "comfort": [
-        "Navigation",
-        "Power Locks",
-        "Keyless Entry"
-      ],
-      "seats": [
-        "Leather Interior"
-      ],
-      "safety": [
-        "Airbag: Side"
-      ],
-      "windows": [
-        "Rear Window Defroster"
-      ],
-      "entertainment": [
-        "MP3 (Multi Disc)"
-      ],
-      "other": [
-        "Third Row Seats"
-      ],
-      "firstname": "aaa",
-      "lastname": "aaa",
-      "email": "khanoyann@gmail.com",
-      "phoneNumber": "1111111111",
-      "description": "My cars description ",
-      "id": 8
-    },
-    {
-      "mark": "Seat",
+      "mark": "",
       "model": "",
       "year": "",
-      "style": "Commercial",
+      "style": "",
       "color": "",
       "transmission": "",
       "driveType": "",
@@ -193,22 +153,44 @@
       "fuel": "",
       "milage": "",
       "vinCode": "",
-      "comfort": [
-        [
-          "comfort"
-        ]
-      ],
+      "comfort": [],
       "seats": [],
       "safety": [],
       "windows": [],
       "entertainment": [],
       "other": [],
       "firstname": "tyjuryugh",
-      "lastname": "rwe",
+      "lastname": "dhfg",
       "email": "khanoyann@gmail.com",
       "phoneNumber": "7777777777",
       "description": "",
-      "id": 9
+      "id": 1
+    },
+    {
+      "mark": "",
+      "model": "",
+      "year": "",
+      "style": "",
+      "color": "",
+      "transmission": "",
+      "driveType": "",
+      "doors": "",
+      "cylinder": "",
+      "fuel": "",
+      "milage": "",
+      "vinCode": "",
+      "comfort": [],
+      "seats": [],
+      "safety": [],
+      "windows": [],
+      "entertainment": [],
+      "other": [],
+      "firstname": "tyjuryugh",
+      "lastname": "dhfg",
+      "email": "khanoyann@gmail.com",
+      "phoneNumber": "7777777777",
+      "description": "",
+      "id": 2
     }
   ]
 }

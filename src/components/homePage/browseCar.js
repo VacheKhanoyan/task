@@ -4,16 +4,19 @@ import BrowseSlider from './browseSlider';
 class BrowseCar extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      next: false,
+      prev: false,
+    };
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
     this.child = React.createRef();
   }
   next() {
-    this.child.current.next();
+    this.setState({ next: true, prev: false });
   }
   prev() {
-    this.child.current.previous();
+    this.setState({ prev: true, next: false });
   }
   render() {
     return (
@@ -39,7 +42,7 @@ class BrowseCar extends Component {
               }}
             />
           </div>
-          <BrowseSlider ref={this.child} />
+          <BrowseSlider next={this.state.next} prev={this.state.prev} />
           <button
             onClick={this.next}
             className="next-arrow slideshow-arrow single_arrowN slick-arrow"
