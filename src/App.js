@@ -10,11 +10,11 @@ import AddCarPage from './components/AddCarPage';
 import UserRouter from './components/Router/UserRouter';
 
 
-const App = ({ user }) => (
+const App = () => (
   <div >
     <Header />
     <Route exact path="/" component={HomePage} />
-    <UserRouter path="/addCar" component={AddCarPage} user={user} />
+    <UserRouter path="/addCar" component={AddCarPage} />
     <Footer />
   </div>
 );

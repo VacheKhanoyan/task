@@ -3,18 +3,26 @@ import PropTypes from 'prop-types';
 
 import { Route, Redirect } from 'react-router-dom';
 
-const UserRoute = ({ user, component: Component, ...rest }) => (
-  <Route
+const UserRoute = ({ user, component: Component, ...rest }) => {
+  const user1 = localStorage.getItem('user');
+  let uid = '';
+  if (user1) {
+    const { id } = JSON.parse(user1);
+    uid = id;
+  }
+  console.log('sssssssssss', uid);
+  return (<Route
     {...rest}
     render={(props) => {
-        console.log(user);
-        return (user ? (
+        console.log('ppppppppppppppppppppppp', uid);
+        return (uid ? (
           <Component {...props} />
         ) : (
           <Redirect to="/" />
         ));
       }}
   />);
+};
 
 UserRoute.propTypes = {
   component: PropTypes.func.isRequired,

@@ -5,7 +5,8 @@ export const POST_NOTIFY = 'POST_NOTYFY';
 
 export function postCar(data) {
   const res = axios
-    .post('http://localhost:3000/addCars', data).then(elem => localStorage.setItem('addCar_id', elem.id));
+    .post('http://localhost:3000/addCars', data)
+    .then(elem => localStorage.setItem('addCar_id', elem.data.id));
 
 
   return dispatch => dispatch({

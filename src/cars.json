@@ -139,58 +139,5 @@
       "id": 96
     }
   ],
-  "addCars": [
-    {
-      "mark": "",
-      "model": "",
-      "year": "",
-      "style": "",
-      "color": "",
-      "transmission": "",
-      "driveType": "",
-      "doors": "",
-      "cylinder": "",
-      "fuel": "",
-      "milage": "",
-      "vinCode": "",
-      "comfort": [],
-      "seats": [],
-      "safety": [],
-      "windows": [],
-      "entertainment": [],
-      "other": [],
-      "firstname": "tyjuryugh",
-      "lastname": "dhfg",
-      "email": "khanoyann@gmail.com",
-      "phoneNumber": "7777777777",
-      "description": "",
-      "id": 1
-    },
-    {
-      "mark": "",
-      "model": "",
-      "year": "",
-      "style": "",
-      "color": "",
-      "transmission": "",
-      "driveType": "",
-      "doors": "",
-      "cylinder": "",
-      "fuel": "",
-      "milage": "",
-      "vinCode": "",
-      "comfort": [],
-      "seats": [],
-      "safety": [],
-      "windows": [],
-      "entertainment": [],
-      "other": [],
-      "firstname": "tyjuryugh",
-      "lastname": "dhfg",
-      "email": "khanoyann@gmail.com",
-      "phoneNumber": "7777777777",
-      "description": "",
-      "id": 2
-    }
-  ]
+  "addCars": []
 }

@@ -7,6 +7,15 @@ import SignUp from './../signupPage/signup';
 import SignIn from './../signupPage/signin';
 import { loggedIn } from '../../actions/userAction';
 
+const user = localStorage.getItem('user');
+    let username = '';
+    let uid=""
+    if (user) {
+      const { firstname, id } = JSON.parse(user);
+      username = firstname;
+      uid= id
+    }
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +46,7 @@ class Header extends Component {
   success() {
     localStorage.setItem('logout', !this.state.success);
     this.setState({ success: !this.state.success });
+    this.props.loggedIn(uid)
   }
   signup() {
     this.setState({ notify: !this.state.notify });
@@ -50,14 +60,11 @@ class Header extends Component {
   }
 
   render() {
-    const user = localStorage.getItem('user');
-    let username = '';
-    if (user) {
-      const { firstname } = JSON.parse(user);
-      username = firstname;
-    }
+    
+    console.log("uid",uid)
     return (
       <div>
+        
         <header className="pos_abs">
           <div className="container clearAfter">
             <div className="logo">
