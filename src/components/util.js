@@ -31,6 +31,7 @@ export const addCarData = {
   email: '',
   phoneNumber: '',
   description: '',
+  crated: new Date(),
 };
 export const errorMessage = {
   empty: 'Can`t be empty',

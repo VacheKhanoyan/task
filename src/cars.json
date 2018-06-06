@@ -120,7 +120,7 @@
   "user": [
     {
       "firstname": "Vache",
-      "lastname": "khanoyan",
+      "lastname": "khanoyangsdf",
       "email": "khanoyann@gmail.com",
       "phoneNumber": "9999999999",
       "zipCode": "999",
@@ -139,5 +139,51 @@
       "id": 96
     }
   ],
-  "addCars": []
+  "addCars": [
+    {
+      "mark": "Renault",
+      "model": "Clio",
+      "year": 2017,
+      "style": "Convertible",
+      "color": "red",
+      "transmission": "Automatic",
+      "driveType": "AWD",
+      "doors": "3 door",
+      "cylinder": "3 Cylinder",
+      "fuel": "Gasoline",
+      "milage": "45345",
+      "vinCode": "7836453",
+      "comfort": {
+        "1": "A/C: Rear",
+        "2": "Cruise Control"
+      },
+      "seats": {
+        "1": "Leather Interior",
+        "2": "Memory Seats"
+      },
+      "safety": {
+        "4": "Antilock Brakes",
+        "5": "Fog Lights"
+      },
+      "windows": {
+        "2": "Rear Window Wiper",
+        "3": "Tinted Glass"
+      },
+      "entertainment": {
+        "3": "CD (Multi Disc)",
+        "4": "MP3 (Single Disc)"
+      },
+      "other": {
+        "1": "Moonroof/Sunroof",
+        "2": "Third Row Seats"
+      },
+      "firstname": "fwef",
+      "lastname": "rwe",
+      "email": "aaa@gmail.com",
+      "phoneNumber": "7777777777",
+      "description": "The Renault Clio is a supermini car (B-segment), produced by the French automobile manufacturer Renault. It was launched in 1990, and was in its fourth generation in 2012. The Clio has had substantial critical and commercial success, being consistently one of Europe's top-selling cars since its launch,[1] and it is largely credited with restoring Renault's reputation and stature after a difficult second half of the 1980s. The Clio is one of only three cars, the others being the Volkswagen Golf and Opel Astra, to have been voted European Car of the Year twice, in 1991 and 2006.      The Clio is sold as the Renault Lutecia (ルノー ルーテシア Runō Rūteshia)[2] in Japan because Honda retains the rights to the name Clio after establishing the Honda Clio sales channel in 1984. Lutecia is derived from the word Lutetia, a former Roman city that is now known as Paris. The Renault Lutecia was formerly available through Yanase Co., Ltd., but in 1999 Renault purchased a stake in Japanese automaker Nissan. Following Renault's takeover, distribution rights for the Lutecia were handed over to Nissan locations in 2000.",
+      "crated": "2018-06-06T09:43:41.934Z",
+      "id": 1
+    }
+  ]
 }

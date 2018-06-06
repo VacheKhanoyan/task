@@ -1,6 +1,6 @@
 import React from 'react';
 import SimpleSlider from './slider';
-import SignIn from './../signupPage/signin';
+
 
 class SlideBar extends React.Component {
   constructor(props) {
@@ -24,12 +24,12 @@ class SlideBar extends React.Component {
   //   this.props.update();
   // }
   render() {
-    localStorage.setItem('logged', this.state.loginShow);
+    // localStorage.setItem('logged', this.state.loginShow);
     return (
 
       <div>
 
-        {this.props.loginShow && <SignIn show={this.props.show} logSuccess={this.logSuccess} />}
+
         <section className="padd_0 posRel">
           <div className="header_slider">
             <div className="cars_slider clearAfter">

@@ -3,7 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import 'react-select/dist/react-select.css';
-import getAllCars from './../../actions/cars';
+import { getAllCars } from './../../actions/cars';
 
 
 class CarInfo extends Component {

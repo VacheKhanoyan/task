@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { signUpData } from './../util';
 import { loginValidate } from './../validate';
 
-import { getUser, loggedIn } from './../../actions/userAction';
+import { getUser, loggedIn, notify } from './../../actions/userAction';
 
 class SignIn extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class SignIn extends Component {
 
     });
   }
+
   async onSubmit() {
     const user = { email: this.state.data.email, password: this.state.data.password };
     const errors = loginValidate(user);
@@ -33,8 +34,9 @@ class SignIn extends Component {
     if (Object.keys(errors).length === 0) {
       await this.props.getUser(user);
       const data = { id: this.props.user[0].id, firstname: this.props.user[0].firstname };
-      this.props.loggedIn(data.id);
+      await this.props.loggedIn(data.id);
       localStorage.setItem('user', JSON.stringify(data));
+      await this.props.notify('login');
       this.props.success();
       this.props.show();
     }
@@ -124,6 +126,7 @@ SignIn.propTypes = {
   show: PropTypes.func.isRequired,
   success: PropTypes.func.isRequired,
   loggedIn: PropTypes.func.isRequired,
+  notify: PropTypes.func.isRequired,
   user: PropTypes.shape({
     email: PropTypes.string,
     id: PropTypes.number,
@@ -136,4 +139,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getUser, loggedIn })(SignIn);
+export default connect(mapStateToProps, { getUser, loggedIn, notify })(SignIn);

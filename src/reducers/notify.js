@@ -1,11 +1,10 @@
 
-import { POST_NOTIFY } from '../actions/postCars';
-
+import { NOTIFY } from '../actions/userAction';
 
 export default function (state = {}, action) {
   switch (action.type) {
-    case POST_NOTIFY: {
-      return { ...state, notyfyId: action.payload.data };
+    case NOTIFY: {
+      return { ...state, notyfy: action.payload };
     }
     default:
       return state;

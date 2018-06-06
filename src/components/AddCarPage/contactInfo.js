@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'react-select/dist/react-select.css';
-import getAllCars from './../../actions/cars';
+import { getAllCars } from './../../actions/cars';
 
 
 const ContactInfo = (props) => {

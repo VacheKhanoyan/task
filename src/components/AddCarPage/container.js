@@ -7,14 +7,17 @@ import Spinner from 'react-spinkit';
 import 'react-select/dist/react-select.css';
 import { addCarData } from './../util';
 import { signUpValidate } from './../validate';
-import getAllCars from './../../actions/cars';
+import { getAllCars } from './../../actions/cars';
 import { postCar } from '../../actions/postCars';
 import CarInfo from './carInfo';
 import CarFeauters from './carFeauters';
 import ContactInfo from './contactInfo';
 import CarDescription from './carDescription';
 import CarPhoto from './carPhoto';
+import { notify } from './../../actions/userAction';
 import { postImage } from './../../actions/postImage';
+import getCar from './../../actions/fetchCar';
+
 
 class Container extends Component {
   constructor(props) {
@@ -27,7 +30,6 @@ class Container extends Component {
       success: false,
       loading: false,
     };
-
     this.marksList = this.marksList.bind(this);
     this.modelsList = this.modelsList.bind(this);
     this.stylesList = this.stylesList.bind(this);
@@ -41,20 +43,22 @@ class Container extends Component {
   componentDidMount() {
     this.props.getAllCars();
   }
-
+  componentWillUnmount() {
+    this.props.getCar();
+  }
   async onClick() {
     const errors = signUpValidate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: !this.state.loading });
-      await postCar(this.state.data);
-      const id = localStorage.getItem('addCar_id');
+
+      const a = await this.props.postCar(this.state.data);
       const img = {
-        id,
+        id: a.payload.id,
         data: this.state.image,
       };
-      await postImage(img);
-      this.props.addSuccess();
+      await this.props.postImage(img);
+      await this.props.notify('Car Add');
       this.props.history.push('/');
     }
   }
@@ -170,10 +174,13 @@ class Container extends Component {
     }
 }
 
-
 Container.propTypes = {
   getAllCars: PropTypes.func.isRequired,
-  addSuccess: PropTypes.func.isRequired,
+  postCar: PropTypes.func.isRequired,
+  postImage: PropTypes.func.isRequired,
+  getCar: PropTypes.func.isRequired,
+  // addSuccess: PropTypes.func.isRequired,
+  notify: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -187,5 +194,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, { getAllCars, postCar, postImage })(Container));
+export default withRouter(connect(mapStateToProps, {
+  getAllCars, postCar, postImage, notify, getCar,
+})(Container));
 

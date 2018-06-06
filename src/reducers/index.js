@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
 import FetchCars from './CarReducers';
 import FetchNewCars from './newCarReducers';
-import AddCarsImage from './addImage';
 import postUser from './userReducer';
 import notify from './notify';
+import SearchCars from './SearchCars';
 
 
 const rootReducer = combineReducers({
   cars: FetchCars,
-  image: AddCarsImage,
+  CarsList: SearchCars,
   newCars: FetchNewCars,
   user: postUser,
-  notifyId: notify,
+  notifyid: notify,
 });
 
 export default rootReducer;

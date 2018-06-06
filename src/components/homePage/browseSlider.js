@@ -1,6 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
+import PropTypes from 'prop-types';
 
+
+/* eslint-disable react/no-string-refs */
 class BrowseSlider extends React.Component {
   constructor(props) {
     super(props);
@@ -78,4 +81,9 @@ class BrowseSlider extends React.Component {
     );
   }
 }
+BrowseSlider.propTypes = {
+  next: PropTypes.bool.isRequired,
+  prev: PropTypes.bool.isRequired,
+
+};
 export default BrowseSlider;

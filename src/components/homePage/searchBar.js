@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getCar from './../../actions/fetchCar';
 
@@ -12,6 +13,7 @@ class SearchBar extends Component {
     this.carTitle = this.carTitle.bind(this);
     this.onClick = this.onClick.bind(this);
   }
+
   componentDidMount() {
     this.props.getCar();
   }
@@ -22,7 +24,8 @@ class SearchBar extends Component {
 
   carTitle(elem) {
     const data = Object.values(this.props.cars);
-    return data.map((d, i) => <option key={i.toString()}>{d[elem]}</option>);
+    if (data) { return data.map((d, i) => <option key={i.toString()}>{d[elem]}</option>); }
+    return '';
   }
 
   render() {
@@ -112,7 +115,7 @@ class SearchBar extends Component {
                       value="select"
                       onClick={() => this.onClick('price')}
                     >
-                      All Models
+                      All Prices
                     </option>
                     {this.carTitle('price')}
                   </select>
@@ -126,7 +129,7 @@ class SearchBar extends Component {
                       value="select"
                       onClick={() => this.onClick('miles')}
                     >
-                      All Models
+                      All Miles
                     </option>
                     {this.carTitle('miles')}
                   </select>
@@ -134,7 +137,9 @@ class SearchBar extends Component {
                 </ul>
               </div>
               <div className="line_search">
-                <input type="submit" value="Search" className="submit" />
+                <Link to="/single/1">
+                  <input type="submit" value="Search" className="submit" />
+                </Link>
               </div>
               <div className="clear" />
             </div>
@@ -157,7 +162,9 @@ SearchBar.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    cars: state.cars,
+    cars: state.CarsList,
+    notify: state.notify,
+    user: state.user,
   };
 }
 

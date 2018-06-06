@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { map } from 'lodash';
 import 'react-select/dist/react-select.css';
-import getAllCars from './../../actions/cars';
+import { getAllCars } from './../../actions/cars';
 
 class CarFeauters extends Component {
   componentDidMount() {
